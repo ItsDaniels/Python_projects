@@ -1,0 +1,22 @@
+import random
+numero = random.randint(1, 50)
+tentativas = 0
+print("O numero foi escolhido vamos começar!")
+while True:
+    if tentativas == 5:
+        print(f"Suas tentativas acabaram o numero secreto era {numero}")
+        break
+    tentativas += 1
+    escolha = input("Tente acertar o numero, qual sua escolha? ")
+    try:
+        escolha_int = int(escolha)
+    except:
+        print("Favor escreva um numero inteiro")
+        continue
+    if escolha_int == numero:
+        print(f"Parabens você acertou o numero secreto em {tentativas} tentativas!")
+        break
+    elif escolha_int > numero:
+        print("Seu chute foi maior que o numero secreto, tente novamente")
+    else:
+        print("Seu chute foi menor que o numero secreto, tente novamente")
