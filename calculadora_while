@@ -1,0 +1,36 @@
+while True:
+    print("Bem vindo a calculadora 2000")
+    primeiro_num = input("Favor informar primeiro numero: ")
+    segundo_num = input("Favor informar segundo numero: ")
+    print("Opções de contas [x] [+] [-] [/]")
+    sinal = input("Favor informar o sinal da conta: ")
+
+    try:
+        primeiro_num = float(primeiro_num)
+        segundo_num = float(segundo_num)
+        sinal_teste = sinal == "x" or sinal == "+" or sinal == "-" or sinal == "/"
+        if sinal_teste != True:
+            print("Você digitou o sinal errado, favor tente novamente")
+            continue
+    except:
+        print("Você digitou um numero errado, favor tentar novamente!")
+        continue
+    if sinal == "x":
+        resultado = primeiro_num * segundo_num
+        print(f"O resultado da conta {primeiro_num} {sinal} {segundo_num} é {resultado}")
+    elif sinal == "+":
+        resultado = primeiro_num + segundo_num
+        print(f"O resultado da conta {primeiro_num} {sinal} {segundo_num} é {resultado}")
+    elif sinal == "-":
+        resultado = primeiro_num - segundo_num
+        print(f"O resultado da conta {primeiro_num} {sinal} {segundo_num} é {resultado}")
+    else:
+        if segundo_num == 0:
+            print("Divisão por zero impossivel, tente novamente")
+            continue
+        resultado = primeiro_num / segundo_num
+        print(f"O resultado da conta {primeiro_num} {sinal} {segundo_num} é {resultado:.2f}")
+    sair = input('Quer sair?: ').lower().startswith('s')
+
+    if sair is True:
+        break
