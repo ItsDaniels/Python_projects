@@ -1,0 +1,25 @@
+lista = []
+import os
+while True:
+    print("Selecione uma opção")
+    opcao = input("[i]nserir [a]pagar [l]istar: ").lower()
+    if opcao == "i":
+        os.system("cls")
+        lista.append(input("Digite o nome do item a ser adicionado: "))
+    elif opcao == "a":
+        os.system("cls")
+        valor_removido = input("Qual o indice do valor a ser removido: ")
+        try:
+            lista.pop(int(valor_removido))
+        except:
+            print("Indice não encontrado, favor informar indice acima!")
+    elif opcao == "l":
+        os.system("cls")
+        if len(lista) == 0 :
+            print("Lista vazia")
+        else:
+            for indice, nome in enumerate(lista):
+                print(indice, nome)
+    else:
+        os.system("cls")
+        print("Opção invalida, favor inserir uma das opções acima!")
