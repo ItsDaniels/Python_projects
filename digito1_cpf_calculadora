@@ -1,0 +1,23 @@
+cpf = ""
+i = 0
+m = 10
+cpf_soma = 0
+while True:
+    if cpf == "":
+        cpf = input("Favor informar numero do cpf: ")
+        if len(cpf) < 14:
+            print("Favor inserir cpf corretamente! Ex: 123.456.789-01")
+            cpf = ""
+            continue
+    if i != 3 and i != 7 and m >=2:
+        cpf_soma += (int(cpf[i]) * m)
+        i += 1
+        m -= 1
+        continue
+    elif i == 3 or i == 7:
+        i += 1
+        continue
+    cpf_soma = (cpf_soma * 10) % 11
+    digito = 0 if cpf_soma > 9 else cpf_soma
+    print(f"O primeiro digito do cpf é {digito}")
+    break 
